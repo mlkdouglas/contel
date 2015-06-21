@@ -12,13 +12,13 @@
             <div class="col-md-10">
                 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Titulo <?php  echo $dados['not_titulo']; ?></h3>
+    <h3 class="panel-title">Titulo <?php  echo $dados['title']; ?></h3>
   </div>
   <div class="panel-body">
-      <p>   Link <?php echo $dados['not_link']; ?> </p>
-      <p>   Descrição <?php echo $dados['not_descricao']; ?> </p>
-      <p>   Noticia <?php echo $dados['not_noticia']; ?> </p>
-      <p>   Status <?php echo $dados['not_status']; ?> </p>
+      <p>   Link <?php echo $dados['link']; ?> </p>
+      <p>   Descrição <?php echo $dados['description']; ?> </p>
+      <p>   Noticia <?php echo $dados['news']; ?> </p>
+      <p>   Status <?php echo $dados['published']; ?> </p>
       
       
   </div>

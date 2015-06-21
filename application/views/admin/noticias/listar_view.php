@@ -31,13 +31,13 @@
             <th>#</th>
             <?php foreach ($not_list as $list): ?>
             <tr>
-                <td><?php echo $list->not_id;?></td>
+                <td><?php echo $list->id;?></td>
                 
-                <td><?php echo $list->not_titulo;?></td>
-                <td><?php echo(!$list->not_status != 0)?"Inativo":"Ativo";?></td>
-                <td><?php echo $list->not_criationdate;?></td>
-                <td><?php echo $list->not_modifidate;?></td>
-                <td><a href="<?php echo base_url('admin/atualizanoticia/'.$list->not_id); ?>"><span class="glyphicon glyphicon-pencil" title="Editar"></span></a> | 
+                <td><?php echo $list->title;?></td>
+                <td><?php echo(!$list->published != 0)?"Inativo":"Ativo";?></td>
+                <td><?php echo $list->creationdate;?></td>
+                <td><?php echo $list->modifieddate;?></td>
+                <td><a href="<?php echo base_url('admin/atualizanoticia/'.$list->id); ?>"><span class="glyphicon glyphicon-pencil" title="Editar"></span></a> | 
                     <a href="#" id="del"><span class="glyphicon glyphicon-trash" title="Excluir"></span></a></td>
             </tr>
             <?php endforeach; ?>

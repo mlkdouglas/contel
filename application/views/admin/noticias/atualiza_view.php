@@ -12,35 +12,35 @@
                 <?php foreach ($noticia as $not): ?>
                 <form class="form-horizontal" method="POST" id="not_update" action="">
                     <div class="form-group">                          
-                        <label class="col-sm-2 control-label" for="not_titulo">Titulo</label>
+                        <label class="col-sm-2 control-label" for="title">Titulo</label>
                         <div class="col-md-6">
-                            <input class="form-control" type="text" name="not_titulo" value="<?php echo $not->not_titulo; ?>"id="not_titulo" placeholder="Titulo">
+                            <input class="form-control" type="text" name="title" value="<?php echo $not->title; ?>"id="title" placeholder="Titulo">
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label class="col-sm-2 control-label"  for="not_link">Link</label>
+                        <label class="col-sm-2 control-label"  for="link">Link</label>
                         <div class="col-md-6">
-                            <input class="form-control" type="text" name="not_link" id="not_link" value="<?php echo $not->not_link; ?>" placeholder="Url da notícia">
+                            <input class="form-control" type="text" name="link" id="link" value="<?php echo $not->link; ?>" placeholder="Url da notícia">
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label class="col-sm-2 control-label" for="not_descricao">Descrição</label>
+                        <label class="col-sm-2 control-label" for="description">Descrição</label>
                         <div class="col-md-6">
-                            <textarea class="form-control" name="not_descricao" id="not_descricao"  rows="3"><?php echo $not->not_descricao; ?></textarea>
+                            <textarea class="form-control" name="description" id="description"  rows="3"><?php echo $not->description; ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="not_noticia">Noticia</label>
+                        <label class="col-sm-2 control-label" for="news">Noticia</label>
                         <div class="col-md-6">                            
-                            <textarea class="form-control" name="not_noticia" id="not_noticia" rows="10" ><?php echo $not->not_noticia; ?></textarea>
+                            <textarea class="form-control" name="news" id="news" rows="10" ><?php echo $not->news; ?></textarea>
                         </div>
                     </div>
-                    <input type="hidden" name="not_modifidate" id="not_modifidate" value="<?php echo date('d/m/Y'); ?>" />                    
+                    <input type="hidden" name="modifieddate" id="modifieddate" value="<?php echo date('d/m/Y'); ?>" />                    
                     <div class="form-group form-group-md">
-                        <label class="col-sm-2 control-label" for="not_status">Status</label>
+                        <label class="col-sm-2 control-label" for="published">Status</label>
                         <div class="col-md-6">
-                            <select class="form-control" name="not_status"id="not_status">
-                                <?php if ($not->not_status != 0){ ?>
+                            <select class="form-control" name="published"id="published">
+                                <?php if ($not->published != 0){ ?>
                                 <option value="1">Ativo</option>
                                 <option value="0">Inativo</option>
                                 <?php }else{ ?>
@@ -80,11 +80,13 @@
 
                 jQuery.ajax({
                         type: "POST",
-                        url: "<?php echo base_url('admin/atualizanoticia/'.$not->not_id.'/update');?>",
+                        url: "<?php echo base_url('admin/atualizanoticia/'.$not->id.'/update');?>",
                         data: dados,
                         success: function( data )
                         {     
                           window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
+                        }else{
+                            alert(data);
                         }
                 });
 

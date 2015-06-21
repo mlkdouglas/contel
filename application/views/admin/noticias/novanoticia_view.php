@@ -75,13 +75,9 @@
                         url: "<?php echo base_url('admin/cadastrar/');?>",
                         data: dados,
                         dataType: "json",
-                        success: function( data )
-                        {  
-                            
-                          window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
-                        }
+                        
                 }).done(function(){
-                
+                window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
                 });
 
                 return false;

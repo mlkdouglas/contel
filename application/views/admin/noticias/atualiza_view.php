@@ -86,11 +86,10 @@
                         url: "<?php echo base_url('admin/atualizanoticia/'.$not->id.'/update');?>",
                         data: dados,
                         dataType: "json",
-                        success: function( data )
-                        {     
-                          window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
-                        }
-                }).done(function(){});
+                        
+                }).done(function(){
+                     window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
+                });
 
                 return false;
             

@@ -18,13 +18,13 @@
                 
                    
                         <div class="media-left">
-                            <a href="<?php echo base_url('noticia/'.$noticias->not_id); ?>">
-                                <img src="<?php echo $noticias->not_imagem; ?>" /></a>
+                            <a href="<?php echo base_url('noticia/'.$noticias->id); ?>">
+                                
                         </div>                        
                         <div class="media-body">
-                             <a href="<?php echo base_url('noticia/'.$noticias->not_id); ?>">
-                            <h4 class="media-heading"><?php echo $noticias->not_titulo; ?></h4>
-                            <?php echo $noticias->not_descricao;?>
+                             <a href="<?php echo base_url('noticia/'.$noticias->id); ?>">
+                            <h4 class="media-heading"><?php echo $noticias->title; ?></h4>
+                            <?php echo $noticias->description;?>
                              </a>
                         </div>
                    

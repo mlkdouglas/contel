@@ -22,7 +22,7 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url('assets/admin/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
-    <script src="<?php echo base_url('assets/js/dialog.js'); ?>"></script>
+    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,25 +30,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
- <script type="text/javascript">
-                // Use jQuery com a variavel $j(...)
-                var $j = jQuery.noConflict();
-                $j(document).ready(function() { 
-                    $j(".voltarTopo").hide();
-                    $j(function () {
-                        $j(window).scroll(function () {
-                            if ($j(this).scrollTop() > 300) {
-                                $j('.voltarTopo').fadeIn();
-                            } else {
-                                $j('.voltarTopo').fadeOut();
-                            }
-                        });                    
-                        $j('.voltarTopo').click(function() {
-                            $j('body,html').animate({scrollTop:0},10);
-                        }); 
-                    });
-                });
-                </script>
+ 
 
 </head>
 
@@ -243,11 +225,11 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url('assets/admin/js/bootstrap.min.js'); ?>"></script>
 
-    <!-- Morris Charts JavaScript -->
+    <!-- Morris Charts JavaScript
     <script src="<?php echo base_url('assets/admin/js/plugins/morris/raphael.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/admin/js/plugins/morris/morris.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/admin/js/plugins/morris/morris-data.js'); ?>"></script>
-
+ -->
 </body>
 
 </html>

@@ -60,7 +60,7 @@
                                     
                                 }
                             </style>
-                            <button type="submit" class="btn small"><img src="<?php echo base_url('assets/img/progress-menu.gif'); ?>" class="progress-menu" /> Atualizar</button>
+                            <button  class="btn small btn-atualiza-not"><img src="<?php echo base_url('assets/img/progress-menu.gif'); ?>" class="progress-menu" /> Atualizar</button>
                         </div>
                     </div>
                 </form> 
@@ -73,8 +73,11 @@
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-               
-            $('#not_update').submit(function(){
+        alert();
+    })
+    $(document).ready(function(){
+              // alert();
+            $('.btn-atualiza-not').click(function(){
             $('.progress-menu').css("display","inline");
                 var dados = jQuery( this ).serialize();
 
@@ -82,16 +85,16 @@
                         type: "POST",
                         url: "<?php echo base_url('admin/atualizanoticia/'.$not->id.'/update');?>",
                         data: dados,
+                        dataType: "json",
                         success: function( data )
                         {     
                           window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
-                        }else{
-                            alert(data);
                         }
-                });
+                }).done(function(){});
 
                 return false;
             
             });
             });
+
             </script>

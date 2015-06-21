@@ -11,20 +11,29 @@
                 <div class="row">
                     <h5>Resultados encontrados: <span class="badge"><?php echo $total_result; ?></span></h5>
                 </div>
-               <?php foreach($not_list as $noticias): ?>
+                <div class="row"><hr></div>
                 <div class="row">
+                    <?php foreach($not_list as $noticias): ?>
                     <div class="media">
+                
+                   
                         <div class="media-left">
-                            <a href="#">
+                            <a href="<?php echo base_url('noticia/'.$noticias->not_id); ?>">
                                 <img src="<?php echo $noticias->not_imagem; ?>" /></a>
                         </div>                        
                         <div class="media-body">
+                             <a href="<?php echo base_url('noticia/'.$noticias->not_id); ?>">
                             <h4 class="media-heading"><?php echo $noticias->not_titulo; ?></h4>
-                            <?php echo $noticias->not_descricao;?></div>
-                    </div>
+                            <?php echo $noticias->not_descricao;?>
+                             </a>
+                        </div>
+                   
+                        <hr>
+                        </div>
+                    <?php endforeach; ?>
+                    
                 </div>
                 
-                <?php endforeach; ?>
                 <div class="nav">
                     <style>
                         .pagination strong{

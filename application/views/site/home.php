@@ -85,15 +85,15 @@
                 <hr />
             </div>
             
-             <?php foreach ($noticias_cons as $row) : ?>
+             <?php foreach ($noticias as $row) : ?>
              <div class="col-md-3 " >
                 <div class="content-news-item">
-                    <h1><?php  echo $row->not_titulo; ?></h1>
-                    <div class="news-data"><?php echo date('d/m/Y', strtotime($row->not_criationdate)); ?></div>
-                   <div class="news-img"><img src="<?php echo $row->not_imagem; ?>"></div>
-                    <div class="news-titulo">Edição n.<?php echo $row->not_id; ?></div>
+                    <h1><?php  echo $row->title; ?></h1>
+                    <div class="news-data"><?php echo $row->modifieddate; ?></div>
+                   
+                    <div class="news-titulo">Edição n.<?php echo $row->id; ?></div>
                     <div class="news-descricao">
-                        <?php echo $row->not_descricao; ?>
+                        <?php echo $row->descricao; ?>
                     </div>
                     <div class="news-shared"><img src="<?php echo base_url('assets/img/ico-shared.png');?>"></div>
                 </div>

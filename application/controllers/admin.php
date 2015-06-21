@@ -6,59 +6,64 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('not_model');
     }
-    public function index() 
-    {
-       $data['page'] = 'home';
-        $this->load->view('admin/admin_view', $data);
-        
+    
+    //Modulo de páginação
+    public function paginacao($maximo,$status){
+        $this->load->library('pagination'); //Carrega a biblioteca pagination CI
+        $config['base_url'] = base_url('admin/noticias'); //Url Base da página
+        $config['total_rows'] = $this->not_model->contaRegistros($status); // Conta total de resultados Ativos ou Inativos "1 - Ativo / 0 - Inativo"
+        $config['per_page'] = $maximo; //Conta o valor maximo por página
+        $config['first_link'] = 'Primeiro'; //Cria menu de navegação de páginas
+        $config['last_link'] = 'Último';//Cria menu de navegação de páginas
+        $config['next_link'] = 'Próximo';//Cria menu de navegação de páginas
+        $config['prev_link'] = 'Anterior';//Cria menu de navegação de páginas
+        return  $this->pagination->initialize($config); //Inicia a paginação
+        }
+    public function index()     {
+        $data['page'] = 'home';
+        $this->load->view('admin/admin_view', $data);        
     }
     
-    public function noticias() 
-    {
-        $this->load->library('pagination');
-        $maximo = 10;
-        $inicio = (!$this->uri->segment("2")) ? 0 : $this->uri->segment("3");
-        $config['base_url'] = base_url('admin/noticias');
-        $config['total_rows'] = $this->not_model->contaRegistros(1);
-        $config['per_page'] = $maximo;
-        $config['first_link'] = 'Primeiro';
-        $config['last_link'] = 'Último';
-        $config['next_link'] = 'Próximo';
-        $config['prev_link'] = 'Anterior';
-        $this->pagination->initialize($config);   
-        $data["paginacao"] =  $this->pagination->create_links();
-        $data['total_result'] = $this->not_model->contaRegistros(1);
-        $status=1;
-        $data['not_list'] = $this->not_model->selectNoticiasList($status, $maximo,$inicio);
-       
+    public function noticias()     {
+        $status = "1";
+        $maximo = 1; // Maximo de resultados por página
+        $inicio = (!$this->uri->segment("2")) ? 0 : $this->uri->segment("3"); //Obtem valor de url para selecionar página de paginação
+        $this->paginacao($maximo,$status); //Seta função de páginação com valor maximo de resultados e Status da noticia - se (1 = Ativo 0 = Inativo)
+        $data["paginacao"] =  $this->pagination->create_links(); // Cria links de paginação na página
+        $data['total_result'] = $this->not_model->contaRegistros($status); // Conta total de resultados encontrados de acordo com status
+        $data['not_list'] = $this->not_model->selectNoticiasList($status, $maximo,$inicio); //consulta no banco de dados
         $data['page'] = 'noticias/listar';
         $this->load->view('admin/admin_view', $data);
-        
         
     }
      public function novanoticia(){
          $data['page']="noticias/novanoticia";
          $this->load->view('admin/admin_view',$data);
      }
+     public function atualizanoticia(){ 
+        $id = $this->uri->segment("3");
+        $post = $this->input->post();// recebe post do formulário
+        (!$this->uri->segment("4") != null)?0:$this->not_model->updateNot($id,$post);// . redirect('admin/noticias/', 'refresh');
+        $data['noticia'] = $this->not_model->setNoticia($id);
+        $data['page']="noticias/atualiza";
+        $this->load->view('admin/admin_view',$data);         
+        }
      public function cadastrar(){
          $post = $this->input->post();
          //print_r($post);
          $this->not_model->insertNoticia($post);
-         $data['dados'] = $post;
-         
+         $data['dados'] = $post;         
          $data['page']="noticias/cadastrar";
          $this->load->view('admin/admin_view',$data);
-     }
+         redirect('admin/noticias/', 'refresh');
+         }
      public function deletar(){
-        $inicio = ($this->uri->segment("4")!="del") ? null : $this->uri->segment("3");
+        $action = ($this->uri->segment("4")!="del") ? null : $this->uri->segment("3");
        // print_r($inicio);
-        if($inicio != null){
-            $this->not_model->deletNoticia($inicio);
-        }
+        if($action != null){$this->not_model->deletNoticia($action);redirect('admin/noticias/', 'refresh');}
         $data['id'] = $this->uri->segment("3");
-         $data['page']="noticias/deletar";
-         $this->load->view('admin/admin_view',$data);
-     
-     }
+        $data['page']="noticias/deletar";
+        $this->load->view('admin/admin_view',$data);     
+        }
     
 }

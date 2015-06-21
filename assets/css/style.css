@@ -12,6 +12,10 @@ hr { border:0;height:1px;width:100%;background:#a4c734;}
 
 p {color:#808080;}
 
+.media-body a{
+    display: block;
+}
+
 #barra-menu-desktop 
 {
     background:#4c4c4c;

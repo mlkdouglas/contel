@@ -35,10 +35,10 @@
                 
                 <td><?php echo $list->not_titulo;?></td>
                 <td><?php echo(!$list->not_status != 0)?"Inativo":"Ativo";?></td>
-                <td><?php echo date('d/m/Y', strtotime($list->not_criationdate));?></td>
-                <td><?php echo date('d/m/Y', strtotime($list->not_modifidate));?></td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil" title="Editar"></span></a> | 
-                <a href="<?php echo base_url('admin/deletar/'.$list->not_id); ?>"><span class="glyphicon glyphicon-trash" title="Excluir"></span></a></td>
+                <td><?php echo $list->not_criationdate;?></td>
+                <td><?php echo $list->not_modifidate;?></td>
+                <td><a href="<?php echo base_url('admin/atualizanoticia/'.$list->not_id); ?>"><span class="glyphicon glyphicon-pencil" title="Editar"></span></a> | 
+                    <a href="#" id="del"><span class="glyphicon glyphicon-trash" title="Excluir"></span></a></td>
             </tr>
             <?php endforeach; ?>
             
@@ -71,3 +71,49 @@
                     </ul>
                 </div>
     </div>
+   <!-- Button to trigger modal -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ 
+  <div class="modal-body">
+       <img src="<?php echo base_url('assets/img/animated-web-preloader.gif'); ?>" style="margin-left: 40%; margin-top: 10%; " />
+     
+  </div>
+ 
+</div>
+    
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script> 
+  
+    
+     <script type="text/javascript">
+                // Use jQuery com a variavel $j(...)
+                var $url = '<?php echo base_url("admin/deletar/{$list->not_id}/del"); ?>';
+                $(document).ready(function() { 
+                   
+               $('#del').click(function(){
+                  $confirma = confirm("Desja realmente excluir este anúncio?");
+                   if($confirma){
+                       $('#myModal').modal('show');
+             jQuery.ajax({
+            type: "GET",
+            url: $url,
+            
+            success:function(response){
+            
+             window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
+            },
+         error: function(xhr, textStatus, errorThrown) {
+                alert('Error!  Status = ' + xhr.status);
+             }
+
+        });       
+            
+               }else{
+                   
+               }
+               });
+    });
+    </script>
+        
+        

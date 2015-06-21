@@ -218,9 +218,9 @@
 
       <?php
 
-        if (isset($page) && is_file('application/views/admin/' . $page . '.php'))
+        if (isset($page) && is_file('application/views/admin/' . $page . '_view.php'))
         {
-            include('application/views/admin/' . $page . '.php');
+            include('application/views/admin/' . $page . '_view.php');
         }
         ?>
 

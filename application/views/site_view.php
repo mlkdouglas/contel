@@ -108,6 +108,44 @@
         </div>
     </section>
     
+    <section class='slide-noticias'>
+        <div class='container'>
+            
+                <!--img src='<?php echo base_url('assets/img/slide-noticias.png');?>' /-->
+                
+                <div class="content-slide">
+                    <div class="col-md-7" >
+                        <div class="content-image">
+                            
+                            <iframe  style="width:100%; height:401px;"  src="https://www.youtube.com/embed/-O9cT7Fjp3c?rel=0&amp;showinfo=0" frameborder="0" border="0"  allowfullscreen></iframe>
+                            
+                            <!--img src="assets/img/slide/image1.png" /-->
+                        </div>
+                    </div>
+               
+                    <div class="col-md-5 content-text">
+                        <!--div class="">
+                            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet, tellus eget tristique pharetra, ex tortor blandit tortor, at lobortis lectus risus id sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                            
+                            <div class="control-button">
+                                <div class="previews"><img src="<?php echo base_url('assets/img/slide/ico-previews.png');?>" /></div>
+                                <div class="next"><img src="<?php echo base_url('assets/img/slide/ico-next.png');?>" /></div>
+                            </div>
+                        </div-->
+                        <h1>Faça sua reclamação</h1>
+                        <p>O Contel quer te ouvir</p>
+                        <textarea class='form-control' style='height:260px;'></textarea>
+                        
+                        <button class='btn btn-green ' style='margin:10px auto;'>Click aqui para reclamar</button>
+                        
+                    </div>
+                    
+                </div>
+            
+        </div>
+    </section>
+    
     
     
     <?php $this->load->view($page . '.php');?>

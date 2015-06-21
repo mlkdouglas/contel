@@ -50,13 +50,14 @@ p {color:#808080;}
 .midia-social ul
 {
     width:100%;
-    padding:5px 0;
+    padding: 0px;
     margin:0;
 }
 
 .midia-social ul li 
 {
     margin-right:10px;
+    padding: 0px;    
 }
 
 
@@ -76,19 +77,25 @@ p {color:#808080;}
     
 }
 
+.submenu-content .submenu ul li a{
+    display: block;
+    padding-top:25px;
+    padding-bottom: 10px;
+}
 .submenu-content .submenu ul li
 {
-    padding-top:25px;
-    padding-bottom:10px;
+    padding-top:0px;
+    padding-bottom:0px;
     font-size:20px;
     color:#808080;
     margin-left:30px;
     cursor:pointer;
     
 }
-.submenu-content .submenu ul li:hover
+.submenu-content .submenu ul li a:hover
 {
     border-bottom:5px solid #a4c735;
+    padding-bottom: 5px; 
     
 }
 
@@ -324,7 +331,19 @@ p {color:#808080;}
 {
     float:left;
     margin-right:10px;
-} 
+}
+
+.voltarTopo {
+    bottom: 20px !important;
+    
+    display: block;
+   
+    position: fixed;
+    right: 30px;
+    text-transform: uppercase;
+    
+    z-index: 100;
+}
 
 
 /******************** DEBUG ********************/

@@ -52,5 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'site';
 $route['o-contel'] = 'site/o_contel';
 $route['atuacao'] = 'site/atuacao';
+$route['noticias'] = 'site/noticias';
+$route['noticias/:num'] = 'site/noticias';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

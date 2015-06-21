@@ -85,55 +85,20 @@
                 <hr />
             </div>
             
-            <div class="col-md-3 " >
+             <?php foreach ($noticias_cons as $row) : ?>
+             <div class="col-md-3 " >
                 <div class="content-news-item">
-                    <h1>Notícia do consumidor</h1>
-                    <div class="news-data">09/04/2015</div>
-                    <div class="news-img"><img src="<?php echo base_url('assets/img/news/img01.png');?>"></div>
-                    <div class="news-titulo">Edição n.147</div>
+                    <h1><?php  echo $row->not_titulo; ?></h1>
+                    <div class="news-data"><?php echo date('d/m/Y', strtotime($row->not_criationdate)); ?></div>
+                   <div class="news-img"><img src="<?php echo $row->not_imagem; ?>"></div>
+                    <div class="news-titulo">Edição n.<?php echo $row->not_id; ?></div>
                     <div class="news-descricao">
-                        Lorem ipsum dolor sit amet amn, consectetur adipiscing elit. Asd Vivamus aliquet, tellus eget Vivamus aliquet, tellus eget
+                        <?php echo $row->not_descricao; ?>
                     </div>
                     <div class="news-shared"><img src="<?php echo base_url('assets/img/ico-shared.png');?>"></div>
                 </div>
             </div>
-            <div class="col-md-3 " >
-                <div class="content-news-item">
-                    <h1>Notícia do consumidor</h1>
-                    <div class="news-data">09/04/2015</div>
-                    <div class="news-img"><img src="<?php echo base_url('assets/img/news/img02.png');?>"></div>
-                    <div class="news-titulo">Edição n.147</div>
-                    <div class="news-descricao">
-                        Lorem ipsum dolor sit amet amn, consectetur adipiscing elit. Asd Vivamus aliquet, tellus eget Vivamus aliquet, tellus eget
-                    </div>
-                    <div class="news-shared"><img src="<?php echo base_url('assets/img/ico-shared.png');?>"></div>
-                </div>
-            </div>
-            <div class="col-md-3 " >
-                <div class="content-news-item">
-                    <h1>Notícia do consumidor</h1>
-                    <div class="news-data">09/04/2015</div>
-                    <div class="news-img"><img src="<?php echo base_url('assets/img/news/img03.png');?>"></div>
-                    <div class="news-titulo">Edição n.147</div>
-                    <div class="news-descricao">
-                        Lorem ipsum dolor sit amet amn, consectetur adipiscing elit. Asd Vivamus aliquet, tellus eget Vivamus aliquet, tellus eget
-                    </div>
-                    <div class="news-shared"><img src="<?php echo base_url('assets/img/ico-shared.png');?>"></div>
-                </div>
-            </div>
-            
-            <div class="col-md-3 " >
-                <div class="content-news-item">
-                    <h1>Notícia do consumidor</h1>
-                    <div class="news-data">09/04/2015</div>
-                    <div class="news-img"><img src="<?php echo base_url('assets/img/news/img03.png');?>"></div>
-                    <div class="news-titulo">Edição n.147</div>
-                    <div class="news-descricao">
-                        Lorem ipsum dolor sit amet amn, consectetur adipiscing elit. Asd Vivamus aliquet, tellus eget Vivamus aliquet, tellus eget
-                    </div>
-                    <div class="news-shared"><img src="<?php echo base_url('assets/img/ico-shared.png');?>"></div>
-                </div>
-            </div>
+        <?php endforeach; ?>    
             
         </div>
         

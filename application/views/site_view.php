@@ -7,9 +7,29 @@
         
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css');?>">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script type="text/javascript">
+                // Use jQuery com a variavel $j(...)
+                var $j = jQuery.noConflict();
+                $j(document).ready(function() { 
+                    $j(".voltarTopo").hide();
+                    $j(function () {
+                        $j(window).scroll(function () {
+                            if ($j(this).scrollTop() > 300) {
+                                $j('.voltarTopo').fadeIn();
+                            } else {
+                                $j('.voltarTopo').fadeOut();
+                            }
+                        });                    
+                        $j('.voltarTopo').click(function() {
+                            $j('body,html').animate({scrollTop:0},10);
+                        }); 
+                    });
+                });
+                </script>
 	<title>Contel</title>
 </head>
-<body>
+<body id="voltarTopo">  
     <section id="barra-menu-desktop" class="container-fluid">
         <div class="container">
             <div class='col-md-3'>
@@ -36,6 +56,7 @@
             </div-->
             
             <div class="sign-in col-md-offset-4 col-md-5" >
+                
                 <!--form class="form-inline pull-right">
                     <div class="form-group input-group-sm">
                         <input type="text" class="form-control" id="exampleInputName2" placeholder="E-mail">
@@ -70,7 +91,7 @@
             
             <div class="col-md-3">
                 <div class='logo'>
-                    <img src="<?php echo base_url('assets/img/logo-contel.png');?>">
+                    <a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url('assets/img/logo-contel.png');?>"></a>
                 </div>
             </div>
             
@@ -79,7 +100,7 @@
                     <li> <a href="<?php echo base_url('o-contel');?>/#o-contel">O Contel</a></li>
                     <li><a href="<?php echo base_url('o-contel');?>/#atuacao">Atuação</a></li>
                     <li>Links Úteis</li>
-                    <li>Notícias</li>
+                    <li><a href="<?php echo base_url('noticias');?>">Notícias</a></li>
                     <li>Contel na mídia</li>
                     <li> <a href="<?php echo base_url('o-contel');?>/#contato">Contato</a></li>
                 </ul>
@@ -87,47 +108,13 @@
         </div>
     </section>
     
-    <section class='slide-noticias'>
-        <div class='container'>
-            
-                <!--img src='<?php echo base_url('assets/img/slide-noticias.png');?>' /-->
-                
-                <div class="content-slide">
-                    <div class="col-md-7" >
-                        <div class="content-image">
-                            
-                            <iframe  style="width:100%; height:401px;"  src="https://www.youtube.com/embed/-O9cT7Fjp3c?rel=0&amp;showinfo=0" frameborder="0" border="0"  allowfullscreen></iframe>
-                            
-                            <!--img src="assets/img/slide/image1.png" /-->
-                        </div>
-                    </div>
-               
-                    <div class="col-md-5 content-text">
-                        <!--div class="">
-                            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet, tellus eget tristique pharetra, ex tortor blandit tortor, at lobortis lectus risus id sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
-                            
-                            <div class="control-button">
-                                <div class="previews"><img src="<?php echo base_url('assets/img/slide/ico-previews.png');?>" /></div>
-                                <div class="next"><img src="<?php echo base_url('assets/img/slide/ico-next.png');?>" /></div>
-                            </div>
-                        </div-->
-                        <h1>Faça sua reclamação</h1>
-                        <p>O Contel quer te ouvir</p>
-                        <textarea class='form-control' style='height:260px;'></textarea>
-                        
-                        <button class='btn btn-green ' style='margin:10px auto;'>Click aqui para reclamar</button>
-                        
-                    </div>
-                    
-                </div>
-            
-        </div>
-    </section>
+    
     
     <?php $this->load->view($page . '.php');?>
     
-    
+    <button type="button" class="voltarTopo btn btn-green btn-lg" alt="Ir para o topo" title="Ir para o topo" onclick="$j('html,body').animate({scrollTop: $j('#voltarTopo').offset().top}, 2000);">
+        <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+    </button>
     <section class='footer container-fluid'>
         <div class="container">
             

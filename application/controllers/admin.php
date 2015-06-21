@@ -43,10 +43,20 @@ class Admin extends CI_Controller
      public function atualizanoticia(){ 
         $id = $this->uri->segment("3");
         $post = $this->input->post();// recebe post do formulário
-        (!$this->uri->segment("4") != null)?0:$this->not_model->updateNot($id,$post);// . redirect('admin/noticias/', 'refresh');
-        $data['noticia'] = $this->not_model->setNoticia($id);
-        $data['page']="noticias/atualiza";
-        $this->load->view('admin/admin_view',$data);         
+        //(!$this->uri->segment("4") != null)?0:$this->not_model->updateNot($id,$post);// . redirect('admin/noticias/', 'refresh');
+        if ($this->uri->segment("4") != null)
+        {
+            $this->not_model->updateNot($id,$post);
+            echo json_encode("ok");
+        }else {
+            $data['noticia'] = $this->not_model->setNoticia($id);
+            $data['page']="noticias/atualiza";
+            $this->load->view('admin/admin_view',$data);         
+        }
+        
+        
+       // echo json_encode("ok");
+        
         }
      public function cadastrar(){
          $post = $this->input->post();

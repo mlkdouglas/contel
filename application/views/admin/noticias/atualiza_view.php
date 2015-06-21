@@ -10,7 +10,7 @@
             <div class="col-md-10">
                 
                 <?php foreach ($noticia as $not): ?>
-                <form class="form-horizontal" method="POST" id="not_update" action="">
+                <form class="form-horizontal " id="form-update" method="POST" id="not_update" action="">
                     <div class="form-group">                          
                         <label class="col-sm-2 control-label" for="title">Titulo</label>
                         <div class="col-md-6">
@@ -73,13 +73,10 @@
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        alert();
-    })
-    $(document).ready(function(){
               // alert();
             $('.btn-atualiza-not').click(function(){
             $('.progress-menu').css("display","inline");
-                var dados = jQuery( this ).serialize();
+                var dados = jQuery( "#form-update" ).serialize();
 
                 jQuery.ajax({
                         type: "POST",

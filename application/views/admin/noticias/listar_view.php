@@ -88,7 +88,7 @@
     
      <script type="text/javascript">
                 // Use jQuery com a variavel $j(...)
-                var $url = '<?php echo base_url("admin/deletar/{$list->not_id}/del"); ?>';
+                var $url = '<?php echo base_url("admin/deletar/{$list->id}/del"); ?>';
                 $(document).ready(function() { 
                    
                $('#del').click(function(){

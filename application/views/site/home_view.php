@@ -129,7 +129,7 @@
                    
                     <div class="news-titulo">Edição n.<?php echo $row->id; ?></div>
                     <div class="news-descricao">
-                        <?php echo $row->descricao; ?>
+                        <?php echo $row->description; ?>
                     </div>
                     <div class="news-shared"><img src="<?php echo base_url('assets/img/ico-shared.png');?>"></div>
                 </div>

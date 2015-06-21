@@ -8,7 +8,7 @@ class Site extends CI_Controller
         $this->load->model('not_model');
     }
     
-        public function paginacao($maximo){
+    public function paginacao($maximo){
         $this->load->library('pagination');
         $config['base_url'] = base_url('site/noticias');
         $config['total_rows'] = $this->not_model->contaRegistros(1);
@@ -20,7 +20,7 @@ class Site extends CI_Controller
        return  $this->pagination->initialize($config);
        
     }
-    function index() 
+    public function index() 
     {
        // echo 'teste';
         
@@ -33,19 +33,19 @@ class Site extends CI_Controller
     }
     
     
-    function o_contel() 
+    public function o_contel() 
     {
         $data['page'] = 'site/o-contel';
         $this->load->view('site_view', $data);
     }
     
-    function atuacao() 
+    public function atuacao() 
     {
         $data['page'] = 'site/atuacao';
         $this->load->view('site_view', $data);
     }
     
-    function noticias() 
+    public function noticias() 
     {
         
         $this->load->library('pagination');
@@ -61,11 +61,17 @@ class Site extends CI_Controller
         $this->load->view('site_view', $data);
     }
     
-    function noticia(){
+    public function noticia(){
         $id = $this->uri->segment("2");
         $data['noticia'] = $this->not_model->setNoticia($id);
-    $data['page'] = 'site/noticia';
+        $data['page'] = 'site/noticia';
         $this->load->view('site_view', $data);    
+    }
+    
+    public function contato() 
+    {
+        $data['page'] = 'site/contato';
+        $this->load->view('site_view', $data); 
     }
     
     

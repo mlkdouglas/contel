@@ -52,10 +52,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'site';
 $route['o-contel'] = 'site/o_contel';
 $route['atuacao'] = 'site/atuacao';
+$route['contato'] = 'site/contato';
+
 $route['noticias'] = 'site/noticias';
 $route['noticias/:num'] = 'site/noticias';
 $route['noticia/'] = 'site/noticia';
 $route['noticia/:num'] = 'site/noticia';
+
+
 $route['upload'] = "errors/html/error_404";
 $route['admin/upload'] = "upload";
 $route['404_override'] = '';

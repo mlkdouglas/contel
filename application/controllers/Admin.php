@@ -62,7 +62,8 @@ class Admin extends CI_Controller
          $post = $this->input->post();
          //print_r($post);
          $this->not_model->insertNoticia($post);
-         echo json_encode("ok");
+         $id = $this->db->insert_id('id');
+         echo json_encode('ok');
          //$data['dados'] = $post;         
          //$data['page']="noticias/cadastrar";
          //$this->load->view('admin/admin_view',$data);

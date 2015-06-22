@@ -36,10 +36,13 @@ class Not_model extends CI_Model{
                  return $query;
             }
     public function insertNoticia($data = null){
-    	$this->db->insert('news', array('creationdate' => 'now()'));
+        $data['creationdate'] = date('Y-m-d');
+      
+    	$this->db->insert('news', $data);
+        
     	
     	
-        $this->db->insert('news', $data);
+        //$this->db->insert('news', $data);
     }
     
     public function updateNot($id = null, $post = null){

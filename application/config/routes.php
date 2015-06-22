@@ -54,6 +54,8 @@ $route['o-contel'] = 'site/o_contel';
 $route['atuacao'] = 'site/atuacao';
 $route['contato'] = 'site/contato';
 
+$route['reclamar'] = 'site/reclamar';
+
 $route['noticias'] = 'site/noticias';
 $route['noticias/:num'] = 'site/noticias';
 $route['noticia/'] = 'site/noticia';

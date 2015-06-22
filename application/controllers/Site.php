@@ -74,6 +74,12 @@ class Site extends CI_Controller
         $this->load->view('site_view', $data); 
     }
     
+    public function reclamar() 
+    {
+        $data['page'] = 'site/reclamar';
+        $this->load->view('site_view', $data);
+    }
+    
     
     
 }

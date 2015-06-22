@@ -1,11 +1,12 @@
 <section id="novanoticia">
-    <div class="container">
-        <div class="row-">
+    
+        <div class="row">
             <div class="col-md-12">
                 <h1><span class="glyphicon glyphicon-plus"></span> Adicionar nova Noticia</h1>
                 <hr />
             </div>
         </div>
+    
         <div class="row">
             <div class="col-md-10">
                 <form id="form-new-noticia" class="form-horizontal" method="POST" id="nova" action="">
@@ -59,7 +60,6 @@
                 </form> 
             </div>                            
         </div>
-    </div>   
 </section>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

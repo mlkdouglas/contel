@@ -25,9 +25,12 @@
                         </div-->
                         <h1>Faça sua reclamação</h1>
                         <p>O Contel quer te ouvir</p>
-                        <textarea class='form-control' style='height:260px;'></textarea>
+                        <p>
+                            São comuns os erros existentes nas faturas de telecomunicação. 7 em cada 10 pessoas são cobradas indevidamente pelas operadoras de telefonia. Segundo dados do Procon, essas mesmas operadoras lideram o ranking de reclamações ano após ano. O Contel através de Pesquisas e Mapeamento encontrou problemas comuns a quase todas elas, cobranças indevidas, erros na portabilidade, problemas de rede, dentre muitos outros. 
+                            Faça aqui a sua reclamação e nos ajude a lutar pelos direitos dos usuários de telecomunicação.
+                        </p>
                         
-                        <button class='btn btn-green ' style='margin:10px auto;'>Click aqui para reclamar</button>
+                        <a class='btn btn-green ' href="<?php echo base_url('reclamar');?>" style='margin:10px auto;'>Click aqui para reclamar</a>
                         
                     </div>
                     

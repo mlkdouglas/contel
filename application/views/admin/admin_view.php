@@ -198,15 +198,15 @@
 
             <div class="container-fluid">
 
-      <?php
+                <?php
 
-        if (isset($page) && is_file('application/views/admin/' . $page . '_view.php'))
-        {
-            include('application/views/admin/' . $page . '_view.php');
-        }
-        ?>
+                if (isset($page) && is_file('application/views/admin/' . $page . '_view.php'))
+                {
+                    include('application/views/admin/' . $page . '_view.php');
+                }
+                ?>
 
-    </div>
+            </div>
             <!-- /.container-fluid -->
 
         </div>

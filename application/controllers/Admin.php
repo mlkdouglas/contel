@@ -7,8 +7,9 @@ class Admin extends CI_Controller
         $this->load->model('not_model');
     }
     
+    
     //Modulo de páginação
-    public function paginacao($maximo,$status){
+    protected function paginacao($maximo,$status){
         $this->load->library('pagination'); //Carrega a biblioteca pagination CI
         $config['base_url'] = base_url('admin/noticias'); //Url Base da página
         $config['total_rows'] = $this->not_model->contaRegistros($status); // Conta total de resultados Ativos ou Inativos "1 - Ativo / 0 - Inativo"
@@ -19,12 +20,15 @@ class Admin extends CI_Controller
         $config['prev_link'] = 'Anterior';//Cria menu de navegação de páginas
         return  $this->pagination->initialize($config); //Inicia a paginação
         }
+        
     public function index()     {
         $data['page'] = 'home';
         $this->load->view('admin/admin_view', $data);        
     }
     
     public function noticias()     {
+        
+        
         $status = "1";
         $maximo = 1; // Maximo de resultados por página
         $inicio = (!$this->uri->segment("2")) ? 0 : $this->uri->segment("3"); //Obtem valor de url para selecionar página de paginação
@@ -37,9 +41,11 @@ class Admin extends CI_Controller
         
     }
      public function novanoticia(){
+         
          $data['page']="noticias/novanoticia";
          $this->load->view('admin/admin_view',$data);
      }
+     
      public function atualizanoticia(){ 
         $id = $this->uri->segment("3");
         $post = $this->input->post();// recebe post do formulário
@@ -55,15 +61,15 @@ class Admin extends CI_Controller
         }
         
         
-       // echo json_encode("ok");
         
         }
      public function cadastrar(){
          $post = $this->input->post();
          //print_r($post);
-         $this->not_model->insertNoticia($post);
-         $id = $this->db->insert_id('id');
-         echo json_encode('ok');
+         $insert = $this->not_model->insertNoticia($post);
+        
+         echo json_encode($insert);
+         
          //$data['dados'] = $post;         
          //$data['page']="noticias/cadastrar";
          //$this->load->view('admin/admin_view',$data);

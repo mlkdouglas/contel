@@ -80,6 +80,43 @@ class Site extends CI_Controller
         $this->load->view('site_view', $data);
     }
     
+    public function reclamarcaduser() 
+    {
+        $this->load->model('reclamar_model');
+        $post_user['define'] = $this->input->post('define');
+        $post_user['name'] = $this->input->post('name');
+        $post_user['cpf'] = $this->input->post('cpf');
+        $post_user['email'] = $this->input->post('email');
+        $post_user['password'] = null;
+        $post_user['zipcode'] = $this->input->post('zipcode');
+        $post_user['address'] = $this->input->post('address');
+        $post_user['state'] = $this->input->post('state');
+        $post_user['birth'] = null;
+        $post_user['creationdate'] = date('Y-m-d');
+        $post_user['status'] = "1";
+        
+        $id_user = $this->reclamar_model->user_reclamacao($post_user);
+        
+        
+        $post_reclame['protocol'] = md5($id_user);
+        $post_reclame['related'] = $this->input->post('related');
+        $post_reclame['complaint'] = $this->input->post('complaint');
+        $post_reclame['creationdate'] = date('Y-m-d');
+        $post_reclame['createdby'] = $id_user;
+        
+        $id_reclamacao = $this->reclamar_model->insert_reclamacao($post_reclame);
+        
+        $data['reclam_user'] = $this->reclamar_model->set_user($id_user);
+        $data['reclamar'] = $this->reclamar_model->set_reclamacao($id_user,$id_reclamacao);
+        $data['reclam'] = $data;
+        json_encode("ok");
+        $data['page'] = 'site/reclamarcaduser';
+        $this->load->view('site_view', $data);
+    }
+    
+    public function reclamacaoenv(){
+            
+    }
     
     
 }

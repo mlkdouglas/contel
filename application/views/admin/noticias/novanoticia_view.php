@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="news">Noticia</label>
                         <div class="col-md-6">                            
-                            <textarea class="form-control" name="news" id="news" rows="10" ></textarea>
+                            <textarea class="form-control news" name="news" id="news" rows="10" ></textarea>
                         </div>
                     </div>
                     <input type="hidden" name="creationdate" id="creationdate" value="<?php //echo date(); ?>" />                    
@@ -77,6 +77,7 @@
                         dataType: "json",
                         
                 }).done(function(){
+                  
                 window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
                 });
 
@@ -85,3 +86,20 @@
             });
             });
             </script>
+            <script src="<?php echo base_url('assets/js/tinymce/tinymce.min.js'); ?>"></script>
+            <script>
+                tinyMCE.init({
+	 selector: "textarea",
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});
+
+
+	
+
+            </script>
+                

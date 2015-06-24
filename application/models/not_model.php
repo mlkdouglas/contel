@@ -1,56 +1,55 @@
 <?php
-
-class Not_model extends CI_Model{
-    
+class Not_model extends CI_Model{    
     public function __construct() {
         parent::__construct();
         $this->load->database();
-    }
-    
-    public function selectNoticiasFature($status = null){
+        }    
+        //Seleciona tabela noticias destaques
+        public function selectNoticiasFature($status = null){
         $status = 1;
         $this->db->order_by("creationdate", "desc");
-        $this->db->where("published", $status);
-       $query = $this->db->get('news',4)->result();
-      return $query;
+        $query = $this->db->get_where("news",array('published' => $status, 'fature'=>'1'),4)->result();
         
-       }
-    public function selectNoticiasList($status = null,$maximo,$inicio){
-        $this->db->order_by("creationdate", "desc");
-        $this->db->where("published", $status);
-       $query = $this->db->get('news',$maximo,$inicio)->result();
-       
-      return $query;
-       
-       }
-       public function contaRegistros($status = null)
-            {
-           $this->db->from('news');
-           $this->db->where("published",$status);
-             return $this->db->count_all_results();
+        return $query;        
+        }
+        //Lista noticias
+        public function selectNoticiasList($status = null,$maximo,$inicio){
+            $this->db->order_by("creationdate", "desc");
+            $this->db->where("published", $status);
+            $query = $this->db->get('news',$maximo,$inicio)->result();
+            
+            return $query;       
+            
             }
             
-            public function setNoticia($id = null){
-                $this->db->where("id",$id);
-                 $query = $this->db->get('news')->result();
-                 return $query;
+            // Conta registros encontrados publicados
+        public function contaRegistros($status = null){
+            $this->db->from('news');
+            $this->db->where("published",$status);
+            return $this->db->count_all_results();
+            }            
+        //Seleciona noticia por id
+        public function setNoticia($id = null){
+            $this->db->where("id",$id);
+            $query = $this->db->get('news')->result();
+            return $query;
             }
-    public function insertNoticia($data = null){
-        $data['creationdate'] = date('Y-m-d');
-      
-    	$this->db->insert('news', $data);
+        // Insere noticia no banco    
+        public function insertNoticia($data = null){
+            $data['creationdate'] = date('Y-m-d');
+            $this->db->insert('news',$data);
+            return  $this->db->insert_id('news'); 
+                            	
+            }
+        // Atualiza noticia    
+        public function updateNot($id = null, $post = null){
+            $this->db->where('id', $id);
+            $this->db->update('news',$post);            
+            }
         
-    	
-    	
-        //$this->db->insert('news', $data);
-    }
-    
-    public function updateNot($id = null, $post = null){
-        $this->db->where('id', $id);
-        $this->db->update('news',$post);
-        
-    }
-    public function deletNoticia($id = null){
-        $this->db->delete('news',array('id' => $id));
-    }
-}
+        //excluir noticias
+        public function deletNoticia($id = null){
+            $this->db->delete('news',array('id' => $id));
+            }
+            
+        }

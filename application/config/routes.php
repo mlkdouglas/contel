@@ -55,6 +55,7 @@ $route['atuacao'] = 'site/atuacao';
 $route['contato'] = 'site/contato';
 
 $route['reclamar'] = 'site/reclamar';
+$route['reclamar/reclamarcaduser'] = 'site/reclamarcaduser';
 
 $route['noticias'] = 'site/noticias';
 $route['noticias/:num'] = 'site/noticias';

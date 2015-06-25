@@ -107,8 +107,8 @@
           $('.outras').css('visibility', 'visible').attr('name','related');
           $('.outras').attr('id','related');
             $(this).removeAttr('name').removeAttr('id');  
-        alert();
+      
         });
-        alert();
+       
     });
 </script>

@@ -13,9 +13,10 @@ class Reclamar_model extends CI_Model{
                    
         }
         
-         public function get_user($id_cpf){
-            $this->db->where('cpf',$id_user);
-            return $this->db->get('cpf')->result();
+         public function get_user($id_cpf = null, $email = null){
+             $where = "cpf='".$id_cpf."' OR email = '".$email."'";
+            $this->db->where( $where );
+            return $this->db->get('user')->result();
             
         }
          public function set_user($id_user){
@@ -29,6 +30,11 @@ class Reclamar_model extends CI_Model{
            return $this->db->insert_id('complaint');
         }
         
+        public function get_reclamacao_validar($protocol = null){
+            $this->db->where('protocol', $protocol);
+            return $this->db->get('complaint')->result();
+                    
+        }
         public function set_reclamacao($id_user,$id_recl){
             $this->db->where('createdby', $id_user);
             $this->db->where( 'id', $id_recl);

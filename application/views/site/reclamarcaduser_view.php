@@ -12,7 +12,7 @@
                 
               <?php foreach ($reclam_user as $reclamacao_user) {
                   foreach($reclamar as $reclamacao):?> 
-                <?php echo $reclamacao_user->id.' ';echo $reclamacao->id ; ?>
+                <h3><smal>Numero de protocolo gerado:</smal> <?php echo $reclamacao->protocol ; ?></h3>
                     <div class="form-group">
                         <label>O que você é ?</label>
                         <input type="text" name="define" id="define" disabled value="<?php echo $reclamacao_user->define; ?>" />

@@ -82,30 +82,46 @@ class Site extends CI_Controller
     
     public function reclamarcaduser() 
     {
-        $this->load->model('reclamar_model');
-        $post_user['define'] = $this->input->post('define');
-        $post_user['name'] = $this->input->post('name');
-        $post_user['cpf'] = $this->input->post('cpf');
-        $post_user['email'] = $this->input->post('email');
-        $post_user['password'] = null;
-        $post_user['zipcode'] = $this->input->post('zipcode');
-        $post_user['address'] = $this->input->post('address');
-        $post_user['state'] = $this->input->post('state');
-        $post_user['birth'] = null;
-        $post_user['creationdate'] = date('Y-m-d');
-        $post_user['status'] = "1";
+        $this->load->model('reclamar_model'); 
+        $post_user = array(
+            'define'=>  $this->input->post('define'),
+            'name'=> $this->input->post('name'),
+            'cpf' => $this->input->post('cpf'),
+            'email' => $this->input->post('email'),
+            'password' => null,
+            'zipcode' => $this->input->post('zipcode'),
+            'address'=> $this->input->post('address'),
+            'state' => $this->input->post('state'),
+            'birth' => null,
+            'creationdate'=> date('Y-m-d'),
+            'status' => "1"
+            );
+        $consulta_cpf = $this->reclamar_model->get_user($post_user['cpf'],$post_user['email']);
         
-        $id_user = $this->reclamar_model->user_reclamacao($post_user);
+        $id_user = (!$consulta_cpf)?$id_user = $this->reclamar_model->user_reclamacao($post_user):$consulta_cpf['0']->id;        
+       
+        $post_reclame = array(
+            'protocol' => rand(1,9999999999), //Gera numero de protocolo aleatório,
+            'related' => $this->input->post('related'),
+       'complaint' => $this->input->post('complaint'),
+        'creationdate' => date('Y-m-d'),
+       'createdby'=> $id_user
+        );
+       //consulta se existe numero de protocolo gerado por rand
+        $consulta_protocolo = $this->reclamar_model->get_reclamacao_validar($post_reclame['protocol']); 
         
+        if($consulta_protocolo != null){ 
+            //se consulta retornar valor gera o loop e altera o numero do protocolo
+      for( $i = $consulta_protocolo['0']->protocol; $i == $post_reclame['protocol']; $i++ ){
+
+	 $post_reclame['protocol'] = rand(1,9999999999); // Gera novo numero de protocolo
+                  
+	}      
+        echo 'passou';
+        }
         
-        $post_reclame['protocol'] = md5($id_user);
-        $post_reclame['related'] = $this->input->post('related');
-        $post_reclame['complaint'] = $this->input->post('complaint');
-        $post_reclame['creationdate'] = date('Y-m-d');
-        $post_reclame['createdby'] = $id_user;
-        
-        $id_reclamacao = $this->reclamar_model->insert_reclamacao($post_reclame);
-        
+        $id_reclamacao = $this->reclamar_model->insert_reclamacao($post_reclame);  
+       
         $data['reclam_user'] = $this->reclamar_model->set_user($id_user);
         $data['reclamar'] = $this->reclamar_model->set_reclamacao($id_user,$id_reclamacao);
         $data['reclam'] = $data;

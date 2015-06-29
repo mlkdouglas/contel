@@ -101,27 +101,26 @@ class Site extends CI_Controller
         $id_user = (!$consulta_cpf)?$id_user = $this->reclamar_model->user_reclamacao($post_user):$consulta_cpf['0']->id;        
        
         $post_reclame = array(
-            'protocol' => rand(1,9999999999), //Gera numero de protocolo aleatório,
+            'protocol' => rand(1,99999).$id_user, //Gera numero de protocolo aleatório e adiciona id do usuário
             'related' => $this->input->post('related'),
        'complaint' => $this->input->post('complaint'),
         'creationdate' => date('Y-m-d'),
        'createdby'=> $id_user
-        );
-       //consulta se existe numero de protocolo gerado por rand
+        );        
+        
         $consulta_protocolo = $this->reclamar_model->get_reclamacao_validar($post_reclame['protocol']); 
-        
-        if($consulta_protocolo != null){ 
-            //se consulta retornar valor gera o loop e altera o numero do protocolo
-      for( $i = $consulta_protocolo['0']->protocol; $i == $post_reclame['protocol']; $i++ ){
-
-	 $post_reclame['protocol'] = rand(1,9999999999); // Gera novo numero de protocolo
-                  
-	}      
-        echo 'passou';
-        }
-        
-        $id_reclamacao = $this->reclamar_model->insert_reclamacao($post_reclame);  
-       
+        if($consulta_protocolo != null){           
+           //inicia o loop
+           $i = 0;}else{ 
+               //Termina o loop
+               $i = 1;}
+           
+      for( $i = 0; $i <= 0; $i++ ){
+          //Gera novo numero de protocolo
+          $post_reclame['protocol'] = rand(1,99999).$id_user;                 
+          }                
+          //Insere reclamação com novo numero de protocolo       
+        $id_reclamacao = $this->reclamar_model->insert_reclamacao($post_reclame);         
         $data['reclam_user'] = $this->reclamar_model->set_user($id_user);
         $data['reclamar'] = $this->reclamar_model->set_reclamacao($id_user,$id_reclamacao);
         $data['reclam'] = $data;

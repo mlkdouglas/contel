@@ -62,6 +62,7 @@ $route['noticias/:num'] = 'site/noticias';
 $route['noticia/'] = 'site/noticia';
 $route['noticia/:num'] = 'site/noticia';
 
+$route['consulta'] = 'site/consultaprotocolo';
 
 $route['upload'] = "errors/html/error_404";
 $route['admin/upload'] = "upload";

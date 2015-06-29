@@ -70,9 +70,9 @@
                     </div>
                 </form-->
                 
-                <form class="form-inline pull-right">
+                <form class="form-inline pull-right" id="consulta_protocolo" method="post" action="<?php echo base_url('consulta'); ?>">
                     <div class="form-group input-group-sm">
-                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Consulte seu protocolo">
+                        <input type="text" class="form-control" id="protocol" name="protocol" placeholder="Consulte seu protocolo">
                     </div>
                     
                     <div class="form-group btn-group-sm">
@@ -211,6 +211,8 @@
     </section>
     
     <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+   
+    
 </body>
 </html>
 

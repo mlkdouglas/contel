@@ -20,7 +20,7 @@
                     
                     <div class="form-group">
                         <label>Nome</label>
-                        <input type="text" class="form-control" name="name" id="name" value="<?php echo $reclamacao_user->name; ?>" disabled />
+                        <input type="text" class="form-control" name="name" id="user_name" value="<?php echo $reclamacao_user->user_name; ?>" disabled />
                     </div>
                     
                     <div class="form-group">

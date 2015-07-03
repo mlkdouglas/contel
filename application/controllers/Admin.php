@@ -83,5 +83,59 @@ class Admin extends CI_Controller
         $data['page']="noticias/deletar";
         $this->load->view('admin/admin_view',$data);     
         }
+        
+        public function database(){
+             $this->load->model('data_model');
+           /* Exemplo
+            * CRIANDO UMA NOVA TABELA
+           
+            $fields = array('id'=>array(
+                'type'=>'INT',
+                'constraint'=>5,
+                'usigned'=>TRUE,
+                'auto_increment'=>TRUE
+            ),
+                'name'=>array('type'=>'VARCHAR',
+                        'constraint'=>150,
+                        ));
+            $key = 'id';
+            $this->data_model->create_table('teste',$fields,$key);
+            * 
+            */
+          
+             //REMOVENDO UMA COLUNA
+             //$this->data_model->remove_col('teste','name');
+             
+             //ADICIONANDO NOVAS COLUNAS
+             /*
+             $fields = array('name'=>array(
+                 'type'=>'VARCHAR',
+                 'constraint'=>100,
+                 'default'=>'Fabio'
+             ));
+             $this->data_model->add_col('teste',$fields);
+              * 
+              */
+                
+             
+             //ALTERANDO UMA COLUNA
+             /*
+             $fields = array(
+              * 'new_name' => array(              
+              * 'type' => 'VARCHAR',
+              * 'constraint'=>100 ),);
+              *  $this->data_model->change_col('teste',$fields);
+              * 
+              */
+             
+             $fields = array(
+                 'status' => array(
+                     'type'=>'VARCHAR',
+                     'constraint'=>3,
+                     'default'=>'1'
+                 )
+             );
+             $this->data_model->change_col('complaint',$fields);
+        }
     
 }

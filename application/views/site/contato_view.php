@@ -8,7 +8,7 @@
             <br />
             <br />
             <div class="form-group col-md-6">
-                <label>Nome:</label>
+                <label>Nome: </label>
                 <input type="text" class="form-control"/>
                 
                 <label>E-mail:</label>

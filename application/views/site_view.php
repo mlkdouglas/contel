@@ -28,17 +28,27 @@
                 });
                 </script>
 	<title>Contel</title>
+        <style>
+            .text-user{color: #c8c8c8;}
+        </style>
 </head>
 <body id="voltarTopo">  
     <section id="barra-menu-desktop" class="container-fluid">
         <div class="container">
-            <div class='col-md-3'>
+            <div class='col-md-6'>
                 <div class='midia-social'>
                     <ul class="col-md-offset-10 col-md-2 pull-right ul-inline  " >
                         <li><img src="<?php echo base_url('assets/img/ico-social-linkedin.png');?>"></li>
                         <li><img src="<?php echo base_url('assets/img/ico-social-facebook.png');?>"></li>
                         <li><img src="<?php echo base_url('assets/img/ico-social-twitter.png');?>"></li>
                         <li><img src="<?php echo base_url('assets/img/ico-social-instagram.png');?>"></li>
+                        <?php  
+                        if($this->session->userdata('name') != null){
+                           
+                        ?>
+                            <li class="text-user h6"><span class="glyphicon glyphicon-user"></span> Olá <?php echo $user['name']; ?></li>
+                        <li class="text-user h6"><a href="<?php echo base_url('site/logout'); ?>" title="Sair"><span class="glyphicon glyphicon-log-out"></span></a></li>
+                       <?php }else{} ?>
                     </ul>
                 </div>
             </div>
@@ -55,7 +65,7 @@
                 </ul>
             </div-->
             
-            <div class="sign-in col-md-offset-4 col-md-5" >
+            <div class="sign-in col-md-offset-3 col-md-3" >
                 
                 <!--form class="form-inline pull-right">
                     <div class="form-group input-group-sm">

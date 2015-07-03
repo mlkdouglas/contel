@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <td><?php echo $protocolo->protocol; ?></td>
-                        <td><?php echo $protocolo->related; ?></td>
+                        <td><?php echo $protocolo->title_define_complaint; ?></td>
                         <td><?php echo date('d/m/Y',  strtotime($protocolo->creationdate)); ?></td>
                         <td><?php if ($protocolo->modifieddate != "0000-00-00 00:00:00"){echo date('d/m/Y H:i:s', strtotime($protocolo->modifieddate));}else{null;}; ?></td>
                         <td><?php echo $protocolo->status_name; ?></td>

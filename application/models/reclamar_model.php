@@ -7,6 +7,8 @@ class Reclamar_model extends CI_Model{
         
         
          public function user_reclamacao($data){
+             $data['creationdate'] = date('Y-m-d');
+             $data['status'] = '1';
             
            $this->db->insert('user',$data);
           return $this->db->insert_id('user');
@@ -30,6 +32,11 @@ class Reclamar_model extends CI_Model{
            return $this->db->insert_id('complaint');
         }
         
+        public function get_reclamacao_id($id = null){
+            $this->db->where('complaint_id', $id);
+            return $this->db->get('complaint')->result();
+                    
+        }
         public function get_reclamacao_validar($protocol = null){
             $this->db->where('protocol', $protocol);
             return $this->db->get('complaint')->result();
@@ -43,8 +50,9 @@ class Reclamar_model extends CI_Model{
         }
         public function set_reclamacao_protocol($protocol){
             $this->db->where( 'protocol', $protocol);
-            $this->db->join('status_complaint', 'complaint.status = status_complaint.id');
-            $this->db->join('admin_user', 'complaint.fortreaty = admin_user.id');
+            $this->db->join('status_complaint', 'complaint.status = status_complaint.id','left');
+            $this->db->join('admin_user', 'complaint.fortreaty = admin_user.id','left');
+            $this->db->join('define_complaint', 'complaint.related = define_complaint.id','left');
             return $this->db->get('complaint')->result();
             
         }

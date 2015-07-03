@@ -4,13 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/xampp/htdocs/contel/application/controllers/Site.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/controllers/Upload.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/controllers/admin.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/models/not_model.php</file>
-            <file>file:/D:/xampp/htdocs/contel/assets/js/dialog.js</file>
-            <file>file:/D:/xampp/htdocs/contel/application/config/routes.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/views/admin/upload.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/views/admin/admin_view.php</file>
+            <file>file:/D:/xampp/htdocs/contel/application/views/site/login_view.php</file>
+            <file>file:/D:/xampp/htdocs/contel/application/views/site/reclamacaoenv_view.php</file>
+            <file>file:/D:/xampp/htdocs/contel/application/views/site/contato_view.php</file>
+            <file>file:/D:/xampp/htdocs/contel/application/models/reclamar_model.php</file>
+            <file>file:/D:/xampp/htdocs/contel/application/views/site/reclamar_view.php</file>
+            <file>file:/D:/xampp/htdocs/contel/application/views/site/consultaprotocolo_view.php</file>
+            <file>file:/D:/xampp/htdocs/contel/application/models/data_model.php</file>
         </group>
     </open-files>
 </project-private>

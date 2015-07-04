@@ -8,42 +8,35 @@
         </div>
     
         <div class="row">
-            <div class="col-md-10">
-                <form id="form-new-noticia" class="form-horizontal" method="POST" id="nova" action="">
+             <form id="form-new-noticia" class="form-horizontal" method="POST" id="nova" action="">
+            <div class="col-md-8">
+               
                     <div class="form-group">                          
                         <label class="col-sm-2 control-label" for="title">Titulo</label>
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                             <input class="form-control" type="text" name="title" id="title" placeholder="Titulo">
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label class="col-sm-2 control-label"  for="link">Link</label>
-                        <div class="col-md-6">
-                            <input class="form-control" type="text" name="link" id="link" placeholder="Url da notícia">
+                        <label class="col-sm-2 control-label"  for="link_reference">Link</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" name="link_reference" id="link_reference" placeholder="Url da notícia">
                         </div>
                     </div>
                     <div class="form-group ">
                         <label class="col-sm-2 control-label" for="description">Descrição</label>
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                             <textarea class="form-control" name="description" id="description" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="news">Noticia</label>
-                        <div class="col-md-6">                            
+                        <div class="col-md-10">                            
                             <textarea class="form-control news" name="news" id="news" rows="10" ></textarea>
                         </div>
                     </div>
                     <input type="hidden" name="creationdate" id="creationdate" value="<?php //echo date(); ?>" />                    
-                    <div class="form-group form-group-md">
-                        <label class="col-sm-2 control-label" for="published">Status</label>
-                        <div class="col-md-6">
-                            <select class="form-control" name="published"id="published">
-                                <option value="1">Ativo</option>
-                                <option value="0">Inativo</option>
-                            </select>  
-                        </div> 
-                    </div>
+                   
                     <div class="form-group">
                           <style>
                                 .progress-menu{
@@ -53,12 +46,55 @@
                                     
                                 }
                             </style>
+                            <input type="hidden" name="createby" id="createby" value="1" />
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="" class="btn btn-default btn-new-not"><img src="<?php echo base_url('assets/img/progress-menu.gif'); ?>" class="progress-menu" /> Salvar</button>
                         </div>
                     </div>
-                </form> 
-            </div>                            
+                
+            </div> 
+          <div class="col-md-4">
+                 <div class="panel panel-default">
+                     <div class="panel-heading">Destacar ná Página inicial</div>
+                
+               <div class="panel-body">
+                    <div class="form-group form-group-md">
+                        <label class="col-md-4 control-label" for="published">Publicar</label>
+                        <div class="col-md-6">
+                            <select class="form-control" name="published"id="published">
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
+                            </select>  
+                        </div> 
+                    </div>
+                <div class="form-group">
+                     <label class="col-md-4 control-label" for="fature">Destacar?</label>
+                   <div class="col-md-6">
+                       <label class="col-md-4 control-label">
+                    <input type="checkbox" value="1" name="fature" id="fature" /> Sim
+                       </label>
+                   </div>
+                </div>
+            </div>
+                 </div>
+                
+           
+        </div>
+                  </form>
+             <div class="col-md-4">
+                 <div class="panel panel-default">
+                     <div class="panel-heading">Imagem de destaque</div>
+  <div class="panel-body">
+  <div class="form-group">
+                    <button class="btn btn-block btn-success ">Escolha uma imagem</button>
+    <p class="help-block">Extenções: jpg,png.</p> 
+                </div>
+  </div>
+</div>
+               
+               
+           
+        </div>
         </div>
 </section>
 
@@ -87,7 +123,7 @@
             });
             });
             </script>
-            <script src="<?php echo base_url('assets/js/tinymce/tinymce.min.js'); ?>"></script>
+            <script src="<?php echo base_url('assets/libs/tinymce/tinymce.min.js'); ?>"></script>
             <script>
                 tinyMCE.init({
 	 selector: "textarea#news",

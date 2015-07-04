@@ -50,10 +50,14 @@ class Reclamar_model extends CI_Model{
         }
         public function set_reclamacao_protocol($protocol){
             $this->db->where( 'protocol', $protocol);
+            $this->db->select('complaint.id as complaint_id, admin_user.id as admin_userid, define_complaint.id as define_id, status_complaint.id as status_id');
+            $this->db->select('complaint.*, admin_user.*, define_complaint.*, status_complaint.*');
             $this->db->join('status_complaint', 'complaint.status = status_complaint.id','left');
             $this->db->join('admin_user', 'complaint.fortreaty = admin_user.id','left');
             $this->db->join('define_complaint', 'complaint.related = define_complaint.id','left');
-            return $this->db->get('complaint')->result();
+            $reslt = $this->db->get('complaint')->result();
+            return $reslt;
+           // var_dump($reslt);
             
         }
         

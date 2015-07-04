@@ -7,32 +7,12 @@ class Site extends CI_Controller
         $this->load->library('session');
         $this->load->model('not_model');
         
-        
-        
-       
     }
     
-    public function paginacao($maximo){
-        $this->load->library('pagination');
-        $config['base_url'] = base_url('site/noticias');
-        $config['total_rows'] = $this->not_model->contaRegistros(1);
-        $config['per_page'] = $maximo;
-        $config['first_link'] = 'Primeiro';
-        $config['last_link'] = 'Último';
-        $config['next_link'] = 'Próximo';
-        $config['prev_link'] = 'Anterior';
-       return  $this->pagination->initialize($config);
-       
-    }
     public function index() 
     {
         $data['user'] = $this->session->userdata();
-       // echo 'teste';
-        
-//return $query->result_array();
-        
         $data['noticias'] =  $this->not_model->selectNoticiasFature();
-      
         $data['page'] = 'site/home';
         $this->load->view('site_view', $data);
     }
@@ -52,7 +32,7 @@ class Site extends CI_Controller
         $this->load->view('site_view', $data);
     }
     
-    public function noticias() 
+    /*public function noticias() 
     {
         $data['user'] = $this->session->userdata();
         $this->load->library('pagination');
@@ -67,14 +47,18 @@ class Site extends CI_Controller
         $data['page'] = 'site/noticias';
         $this->load->view('site_view', $data);
     }
+     * 
+     */
     
-    public function noticia(){
+   /* public function noticia(){
         $data['user'] = $this->session->userdata();
         $id = $this->uri->segment("2");
         $data['noticia'] = $this->not_model->setNoticia($id);
         $data['page'] = 'site/noticia';
         $this->load->view('site_view', $data);    
     }
+    * 
+    */
     
     public function contato() 
     {
@@ -171,9 +155,10 @@ class Site extends CI_Controller
         $protocol = $this->input->post('protocol');
        
         $data['n_protocolo'] = $this->reclamar_model->set_reclamacao_protocol($protocol);
-        $id_complaint = ($data['n_protocolo']!= null)?$data['n_protocolo']['0']->complaint_id:null;             
+        
+        $id_complaint = ($data['n_protocolo']!= null)?$data['n_protocolo']['0']->id:null;             
        
-       // var_dump($id_complaint); exit;
+       //var_dump($id_complaint); exit;
         $data['comentarios'] = ($this->reclamar_model->set_coment_complaint( $id_complaint  )!= null)?$this->reclamar_model->set_coment_complaint( $id_complaint  ):"";
         
         $id_coment_complaint = ($data['comentarios']==null)?null:$data['comentarios']['0']->id;

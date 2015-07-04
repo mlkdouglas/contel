@@ -45,8 +45,8 @@
                     </a> 
                 </td>
                 
-                <td>                    
-                    <a href="#" id="del">
+                <td class="del">                    
+                    <a href="<?php echo base_url("admin/deletar/{$list->id}/del"); ?>"  id="del">
                         <span class="glyphicon glyphicon-trash" title="Excluir"></span>
                     </a>
                 </td>
@@ -99,10 +99,12 @@
     
     <script type="text/javascript">
                // Use jQuery com a variavel $j(...)
-               var $url = '<?php echo base_url("admin/deletar/{$list->id}/del"); ?>';
+           
                $(document).ready(function() { 
-
-              $('#del').click(function(){
+                
+              $('#table .del a').click(function(){
+               $url = $(this).attr('href');
+             
                  $confirma = confirm("Desja realmente excluir este anúncio?");
                   if($confirma){
                       $('#myModal').modal('show');
@@ -113,15 +115,12 @@
            success:function(response){
 
             window.location.replace('<?php echo base_url('admin/noticias/'); ?>');
-           },
-        error: function(xhr, textStatus, errorThrown) {
-               alert('Error!  Status = ' + xhr.status);
-            }
+           }
 
        });       
 
               }else{
-
+return false;
               }
               });
     });

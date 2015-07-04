@@ -69,7 +69,6 @@
         </div>
     </div>   
 </section>
-
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
@@ -94,3 +93,23 @@
             });
 
             </script>
+            
+ <script src="<?php echo base_url('assets/js/tinymce/tinymce.min.js'); ?>"></script>
+             
+            <script>
+                tinyMCE.init({
+	 selector: "textarea#news",
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+
+    setup: function (editor) {
+        editor.on('change', function () {
+            editor.save();
+        });
+    }
+});
+</script>

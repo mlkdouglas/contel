@@ -171,9 +171,10 @@ class Site extends CI_Controller
         $protocol = $this->input->post('protocol');
        
         $data['n_protocolo'] = $this->reclamar_model->set_reclamacao_protocol($protocol);
-        $id_complaint = ($data['n_protocolo']!= null)?$data['n_protocolo']['0']:null;             
-       // var_dump($id_complaint);
-        $data['comentarios'] = $this->reclamar_model->set_coment_complaint($id_complaint->complaint_id);
+        $id_complaint = ($data['n_protocolo']!= null)?$data['n_protocolo']['0']->complaint_id:null;             
+       
+       // var_dump($id_complaint); exit;
+        $data['comentarios'] = ($this->reclamar_model->set_coment_complaint( $id_complaint  )!= null)?$this->reclamar_model->set_coment_complaint( $id_complaint  ):"";
         
         $id_coment_complaint = ($data['comentarios']==null)?null:$data['comentarios']['0']->id;
                 

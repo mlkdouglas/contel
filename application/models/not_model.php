@@ -14,7 +14,7 @@ class Not_model extends CI_Model{
         }
         //Lista noticias
         public function selectNoticiasList($status = null,$maximo,$inicio){
-            $this->db->order_by("creationdate", "desc");
+            $this->db->order_by("modifieddate", "DESC");
             $this->db->where("published", $status);
             $query = $this->db->get('news',$maximo,$inicio)->result();
             

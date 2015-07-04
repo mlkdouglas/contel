@@ -25,12 +25,16 @@ class Admin extends CI_Controller
         $data['page'] = 'home';
         $this->load->view('admin/admin_view', $data);        
     }
+    public function login(){
+        $data = array();
+        $this->load->view('admin/login_view', $data);        
+    }
     
     public function noticias()     {
         
         
         $status = "1";
-        $maximo = 1; // Maximo de resultados por página
+        $maximo = 10; // Maximo de resultados por página
         $inicio = (!$this->uri->segment("2")) ? 0 : $this->uri->segment("3"); //Obtem valor de url para selecionar página de paginação
         $this->paginacao($maximo,$status); //Seta função de páginação com valor maximo de resultados e Status da noticia - se (1 = Ativo 0 = Inativo)
         $data["paginacao"] =  $this->pagination->create_links(); // Cria links de paginação na página
@@ -41,7 +45,7 @@ class Admin extends CI_Controller
         
     }
      public function novanoticia(){
-         
+        
          $data['page']="noticias/novanoticia";
          $this->load->view('admin/admin_view',$data);
      }

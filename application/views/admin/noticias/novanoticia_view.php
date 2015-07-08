@@ -71,7 +71,7 @@
                      <label class="col-md-4 control-label" for="fature">Destacar?</label>
                    <div class="col-md-6">
                        <label class="col-md-4 control-label">
-                    <input type="checkbox" value="1" name="fature" id="fature" /> Sim
+                    <input type="checkbox" value="1" name="fature" id="fature" data-target="#myModal" /> Sim
                        </label>
                    </div>
                 </div>
@@ -86,7 +86,7 @@
                      <div class="panel-heading">Imagem de destaque</div>
   <div class="panel-body">
   <div class="form-group">
-                    <button class="btn btn-block btn-success ">Escolha uma imagem</button>
+                    <button class="btn btn-block btn-success " id="media">Escolha uma imagem</button>
     <p class="help-block">Extenções: jpg,png.</p> 
                 </div>
   </div>
@@ -96,6 +96,24 @@
            
         </div>
         </div>
+    
+    <div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </section>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -139,7 +157,14 @@
             editor.save();
         });
     }
+$('#myModal').modal('show')
 });
+$('#media').click(function(){
+  //alert(); 
+  $('#myModal').modal('show');
+
+});
+
 
          
 

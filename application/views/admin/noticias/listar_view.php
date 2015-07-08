@@ -46,7 +46,7 @@
                 </td>
                 
                 <td class="del">                    
-                    <a href="<?php echo base_url("admin/deletar/{$list->id}/del"); ?>"  id="del">
+                    <a href="<?php echo base_url("admin/deletar/{$list->id}/del"); ?>"  id="del1">
                         <span class="glyphicon glyphicon-trash" title="Excluir"></span>
                     </a>
                 </td>
@@ -103,6 +103,7 @@
                $(document).ready(function() { 
                 
               $('#table .del a').click(function(){
+                  
                $url = $(this).attr('href');
              
                  $confirma = confirm("Desja realmente excluir este anúncio?");
@@ -124,6 +125,7 @@ return false;
               }
               });
     });
+    
     </script>
         
-        
+       

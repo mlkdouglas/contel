@@ -65,7 +65,7 @@ $route['noticia/:num/:any'] = 'noticias/noticia';
 
 $route['consulta'] = 'site/consultaprotocolo';
 
-$route['upload'] = "errors/html/error_404";
-$route['admin/upload'] = "upload";
+//$route['upload'] = "errors/html/error_404";
+//$route['admin/upload'] = "upload";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

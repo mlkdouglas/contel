@@ -8,9 +8,7 @@
         </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2 ">
-                <div class="row">
-                    <h5>Resultados encontrados: <span class="badge"><?php echo $total_result; ?></span></h5>
-                </div>
+                
                 <div class="row"><hr></div>
                 <div class="row">
                     <?php foreach($not_list as $noticias): ?>
@@ -18,11 +16,11 @@
                 
                    
                         <div class="media-left">
-                            <a href="<?php echo base_url('noticia/'.$noticias->id); ?>">
+                            <a href="<?php echo base_url('noticia/'.$noticias->id.'/'.$noticias->slug); ?>">
                                 
                         </div>                        
                         <div class="media-body">
-                             <a href="<?php echo base_url('noticia/'.$noticias->id); ?>">
+                             <a href="<?php echo base_url('noticia/'.$noticias->id.'/'.$noticias->slug); ?>">
                             <h4 class="media-heading"><?php echo $noticias->title; ?></h4>
                             <?php echo $noticias->description;?>
                              </a>

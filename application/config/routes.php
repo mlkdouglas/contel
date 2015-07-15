@@ -57,14 +57,15 @@ $route['contato'] = 'site/contato';
 $route['reclamar'] = 'site/reclamar';
 $route['reclamar/reclamarcaduser'] = 'site/reclamarcaduser';
 
-$route['noticias'] = 'site/noticias';
-$route['noticias/:num'] = 'site/noticias';
-$route['noticia/'] = 'site/noticia';
-$route['noticia/:num'] = 'site/noticia';
+$route['noticias/page'] = 'noticias/index';
+$route['noticias/page/:num'] = 'noticias/index';
+//$route['noticias/:num'] = 'site/noticias';
+$route['noticia/'] = 'noticias/noticia';
+$route['noticia/:num/:any'] = 'noticias/noticia';
 
 $route['consulta'] = 'site/consultaprotocolo';
 
-$route['upload'] = "errors/html/error_404";
-$route['admin/upload'] = "upload";
+//$route['upload'] = "errors/html/error_404";
+//$route['admin/upload'] = "upload";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

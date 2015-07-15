@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Contel - Painel de controle</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('assets/admin/css/bootstrap.min.css'); ?>" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="index.html">Contel Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -225,11 +225,11 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url('assets/admin/js/bootstrap.min.js'); ?>"></script>
 
-    <!-- Morris Charts JavaScript
+    <!-- Morris Charts JavaScript -->
     <script src="<?php echo base_url('assets/admin/js/plugins/morris/raphael.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/admin/js/plugins/morris/morris.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/admin/js/plugins/morris/morris-data.js'); ?>"></script>
- -->
+ 
 </body>
 
 </html>

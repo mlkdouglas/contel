@@ -68,12 +68,21 @@ class Admin extends CI_Controller
         
         }
      public function cadastrar(){
-         $post = $this->input->post();
-         //print_r($post);
-         $insert = $this->not_model->insertNoticia($post);
-        
-         echo json_encode($insert);
-         
+         $title = $this->input->post('title');                 
+         $slug = strtolower(preg_replace('/[ -]+/' , '-' , $title));
+         $post = array('title'=>$title,
+             'slug'=>$slug,
+             'link_reference'=>$this->input->post('link_reference'),
+             'description'=>  $this->input->post('description'),
+             'news'=>  $this->input->post('news'),
+             'creationdate'=>  date('Y-m-d'),
+             'modifieddate'=> date('Y-m-d H:i:s'),
+             'published'=>  $this->input->post('published'),
+             'fature' => $this->input->post('fature'),
+             'createby' => $this->input->post('createby')
+             );
+         $insert = $this->not_model->insertNoticia($post);        
+         echo json_encode($insert);         
          //$data['dados'] = $post;         
          //$data['page']="noticias/cadastrar";
          //$this->load->view('admin/admin_view',$data);

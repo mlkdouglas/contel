@@ -5,7 +5,7 @@ class Site extends CI_Controller
     public function __construct() {
         parent::__construct();
         $this->load->library('session');
-        $this->load->model('not_model');
+        //$this->load->model('not_model');
         
         
         
@@ -26,12 +26,12 @@ class Site extends CI_Controller
     }
     public function index() 
     {
-        $data['user'] = $this->session->userdata();
+        //$data['user'] = $this->session->userdata();
        // echo 'teste';
         
 //return $query->result_array();
         
-        $data['noticias'] =  $this->not_model->selectNoticiasFature();
+        //$data['noticias'] =  $this->not_model->selectNoticiasFature();
       
         $data['page'] = 'site/home';
         $this->load->view('site_view', $data);

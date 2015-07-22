@@ -50,22 +50,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'site';
-$route['o-contel'] = 'site/o_contel';
-$route['atuacao'] = 'site/atuacao';
-$route['contato'] = 'site/contato';
-
-$route['reclamar'] = 'site/reclamar';
-$route['reclamar/reclamarcaduser'] = 'site/reclamarcaduser';
-
-$route['noticias/page'] = 'noticias/index';
-$route['noticias/page/:num'] = 'noticias/index';
-//$route['noticias/:num'] = 'site/noticias';
-$route['noticia/'] = 'noticias/noticia';
-$route['noticia/:num/:any'] = 'noticias/noticia';
-
-$route['consulta'] = 'site/consultaprotocolo';
-
-//$route['upload'] = "errors/html/error_404";
-//$route['admin/upload'] = "upload";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

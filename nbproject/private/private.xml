@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/xampp/htdocs/contel/application/controllers/Site.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/views/site/login_view.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/views/site/reclamacaoenv_view.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/views/site/contato_view.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/models/reclamar_model.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/views/site/reclamar_view.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/views/site/consultaprotocolo_view.php</file>
-            <file>file:/D:/xampp/htdocs/contel/application/models/data_model.php</file>
+            <file>file:/D:/xampp/htdocs/contel2/application/views/includers/site/header_view.php</file>
+            <file>file:/D:/xampp/htdocs/contel2/application/controllers/site.php</file>
+            <file>file:/D:/xampp/htdocs/contel2/application/views/includers/site/home_view.php</file>
+            <file>file:/D:/xampp/htdocs/contel2/application/controllers/login.php</file>
         </group>
     </open-files>
 </project-private>

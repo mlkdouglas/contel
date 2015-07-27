@@ -40,7 +40,7 @@ class Site extends CI_Controller {
     
     private function noticias_index(){
         $this->load->model('noticias'); 
-        $news = $this->noticias->set_not_list('news.creationdate','DESC');
+        $news = $this->noticias->set_not_list(1,'news.creationdate','DESC');
         
      return $news;
         

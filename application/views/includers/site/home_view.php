@@ -197,14 +197,16 @@
                 </div>
                 <?php 
                 foreach ($noticias_index as $not):?>
+                
                    <div class="col-md-3 mb-30" >
                     <div class="content-news-item bg-white  fullwidth">
-                        <h3 class="size-4 mb-0"><?php echo $not->title; ?></h3>
-                        <div class="news-data size-1 mt-0"><?php echo $not->creationdate.' atualizada em '.$not->modifieddate; ?></div>
-                        <div class="news-img text-center mt-20 mb-20"><img src="<?php echo $not->url; ?>"></div>
-                        <div class="news-titulo size-1">Edição n.<?php echo $not->id; ?></div>
+                        <h3 class="size-4 mb-0"><?php echo $not->news_title; ?></h3>
+                        <div class="news-data size-1 mt-0">Publicado em: <?php echo $not->news_creationdate.$modif=($not->news_modifieddate == '0000-00-00 00:00:00')?null :'Atualizada em '.$not->news_modifieddate; ?></div>
+                        <div class="news-data size-1 mt-0">Autor: <?php echo $not->admin_user_name; ?></div>
+                        <div class="news-img text-center mt-20 mb-20"><img class="col-md-12"src="<?php echo base_url('libs/upload/'.$not->archive_url); ?>"></div>
+                        <div class="news-titulo size-1">Edição n.<?php echo $not->news_id; ?></div>
                         <div class="news-descricao size-2 mb-20">
-                           <?php echo $not->description; ?>
+                           <?php echo $not->news_description; ?>
                         </div>
                         <div class="news-shared text-right"><i class="fa fa-share"></i></div>
                     </div>
@@ -261,7 +263,7 @@
   },
  // uploadProgress: function(event, position, total, percentComplete) {},
   complete: function() {
-    // location.reload(true);
+   location.reload(true);
 
   }
   });

@@ -1,20 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Site extends CI_Controller {
+class Consultaprotocolo extends CI_Controller {
     protected $controlpath = 'site/site_view';
     
     public function __construct() {
         parent::__construct();
         $this->load->model('membership');
+        $this->load->model('complaint');
     }
     
     public function index(){
         $session = $this->nsession->userdata('logado');
         $user_dados = $this->membership->set_user_id($session);
+        
         $data = array(       
             'user_dados' => $user_dados,
-           'body' => 'home', 
+           'body' => 'protocolo', 
             'reclamar_button'=>'<a class="btn btn-green btn-mod-3 " href="'.base_url('reclamar').'">Reclamar</a>',
             'navtop' =>array(
                 0 => '<a href="'.base_url().'" class="color-white">CONTEL</a>',
@@ -33,18 +35,12 @@ class Site extends CI_Controller {
                 . '<li><a href="#" id="logout">Sair </a></li>'
                 . '</ul>'
                 . '</div>'),
-            'noticias_index' => $this->noticias_index(),
+            //'protocolo' => $this->nsession->userdata('protocol'),
+            'consulta' => $this->complaint->set_complaint_protocol($this->input->post('protocol')),
+            
         );
         
+       // var_dump($data['consulta']);die();
        $this->load->view($this->controlpath, $data);
     }
-    
-    private function noticias_index(){
-        $this->load->model('noticias'); 
-        $news = $this->noticias->set_not_list(1,'news.creationdate','DESC');
-        
-     return $news;
-        
-    }
-    
 }

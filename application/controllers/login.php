@@ -18,7 +18,7 @@ class Login extends CI_Controller{
         if($valida != null){
             //Gerando sessao
         foreach ($valida as $data):
-            $this->nsession->set_userdata('logado',$data->id_user);
+            $this->nsession->set_userdata('logado',$data->id);
         echo $this->nsession->userdata('logado');
         endforeach;
         }else{
@@ -44,7 +44,7 @@ class Login extends CI_Controller{
         echo $this->nsession->userdata('logado');
        
         }else{
-            echo 'Nenhum usuário encontrado';
+           
         }
        
          }

@@ -112,51 +112,13 @@
                 </div>
                   
                 <div class="col-md-offset-2 col-md-4">
-                    <form class="form-group " id="reclamar" action="" method="post">
-                        <div id="retornovalida"></div>
-                        <label class="color-white"><h3>Reclamar</h3></label>
-                        <div class="mb-10">
-                            <textarea name="rec" id="rec" rows="10" cols="60"></textarea>
-                        </div>
-                        
-                        
-                      
-                        <div class="mb-10">
-                            <button class="btn btn-lg btn-green fullwidth ">Reclamar</button>
-                        </div>
-                    
-                    
-                    <p class="color-white-light">
-                        Ao clicar em "Cadastre-se no Contel" , você concorda com nossos 
-                        <a href="#" class="color-green">termos de serviço</a> e <a href="#" class="color-green">política de privacidade</a>. Nós lhe enviaremos 
-                        e-mails relacionados representam ocasionalmente.
-                    </p>
-                    </form>
-                    
-                    <form class="form-group " id="login" action="" method="post" hidden>
-                        <h3 class="color-white">Efetue o login</h3>
-                            
-                        <div id="retornovalida"></div>
-                        <label class="color-white-light">Email</label>
-                            
-                        <div class="mb-10">
-                            <input type="email" class="form-control input-lg" placeholder="Email" id="email" name="email"/>
-                        </div>
-                        <label class="color-white-light">Senha</label>
-                        <div class="mb-10">
-                            <input type="password" class="form-control input-lg" id="password" name="password" />
-                        </div>
-                        
-                      
-                        <div class="mb-10">
-                            <button class="btn btn-lg btn-green fullwidth ">Entrar <span class="loader"></span></button>
-                        </div>
-                    
-                    
-                 
-                    </form>
-                    
-                    
+                    <ul class="nav">
+                        <li><a href=""  class="btn btn-green col-md-10">Minha Conta</a></li>
+                        <samp class="clearfix"></samp>
+                        <li><a href="" class="btn btn-green col-md-10">Minhas reclamações</a></li>
+                        <samp class="clearfix"></samp>
+                        <li><a href="<?php echo base_url('reclamar') ?>" class="btn btn-green col-md-10">Fazer uma reclamação</a></li>                                
+                    </ul>                                                                                   
                 </div>
      <?php endforeach; ?>
       <?php } ?>
@@ -176,7 +138,7 @@
                 </p>
 
                 <div class="text-center mt-20 mb-20">
-                    <button class="btn btn-green btn-mod-3 ">Reclamar</button>
+                    <?php echo $reclamar_button; ?>
                 </div>
             </div>
         </div>
@@ -220,7 +182,7 @@
         </div>
         
         
- </section>
+
     
  
  <script>
@@ -230,52 +192,12 @@
         $('#login').fadeIn();
      });
      
-     $('#login').ajaxForm({
-          data: $(this).serialize(), 
-          type: 'POST',
-          url: '<?php echo base_url('login/logar'); ?>',
-          dataType: 'json',
-  beforeSubmit:function() { 
-      $('.loader').html('Aguarde...');
-      
-    }, 
-  beforeSend: function(e) {
-      $('.loader').html('Aguarde...');
-  },
- // uploadProgress: function(event, position, total, percentComplete) {},
-  complete: function(data) {
     
-     location.reload(true);
-     }
-  });
                          
                          
-                         $('#usercad').ajaxForm({
-          data: $(this).serialize(), 
-          type: 'POST',
-          url: '<?php echo base_url('login/caduser'); ?>',
-  beforeSubmit:function() { 
-      $('.loader').html('Aguarde...');
-      
-    }, 
-  beforeSend: function(e) {
-      $('.loader').html('Aguarde...');
-  },
- // uploadProgress: function(event, position, total, percentComplete) {},
-  complete: function() {
-   location.reload(true);
-
-  }
-  });
+                       
                          
-                         $('#logout').on('click',function(){
-                            $('.loader-user').html('Aguarde...');
-                            $.ajax({
-                                 url:'<?php echo base_url('login/logout'); ?>',
-                                  }).done(function(){
-                                   location.reload(true);
-                             });
-                         });
+                       
                          
          });
        

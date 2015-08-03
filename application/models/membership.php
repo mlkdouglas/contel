@@ -13,7 +13,7 @@ class Membership extends CI_Model{
         return $users;
     }
     public function set_user_id($id){
-        $this->db->where('id_user',$id);
+        $this->db->where('id',$id);
          $users = $this->db->get('user')->result();
         return $users;
     }
@@ -25,25 +25,33 @@ class Membership extends CI_Model{
     }
     public function insert_user($data){
              
-       $where = "user_name='".$data['user_name']."' OR email='".$data['email']."'";
+       $where = "email='".$data['email']."'";
         $this->db->where($where);
        
         $consulta = $this->db->get('user')->result();
         
         if($consulta != null){
-            echo 'Usuário ou senha já existe. Efetue o login ou clique em recuperar senha';
+            
+            $error = array(
+                "0" => array('Error'=>'Usuário ou email já existe Efetue o login'),
+               );
+            
+            
+            
+            echo json_encode($error[0]);
     }else{
-         $data['creationdate'] = date('Y-m-d');
-            $this->db->insert('user',$data);
+         
+         $dados  = array('name'=>$data['user_name'],'email'=>$data['email'],'creationdate' => date('Y-m-d'));
+            $this->db->insert('user',$dados);
             return $this->db->insert_id('user');
     }
     }
     public function update_user($id, $data){
-        $this->db->where('id_user',$id);
+        $this->db->where('id',$id);
        return $this->db->update('user',$data);
     }
     public function delet_user($id){
-         $this->db->where('id_user',$id);
+         $this->db->where('id',$id);
          return $this->db->delete('user');
     }
     

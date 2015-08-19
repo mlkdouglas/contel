@@ -7,6 +7,8 @@ class Useraccount extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('membership');
+        
+        if (!isset($_SESSION['userinfo']) || $_SESSION['userinfo'] == null) header("Location: home");
     }
     
     public function index(){

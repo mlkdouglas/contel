@@ -17,10 +17,19 @@ class Login extends CI_Controller{
         $valida = $this->membership->set_user_login($dados['email'],$dados['password']);
         if($valida != null){
             //Gerando sessao
+          
+            $this->nsession->set_userdata('userinfo',array(
+                 'id' => $valida->id,
+                 'name' => $valida->name,
+             ));
+            
+            /*
         foreach ($valida as $data):
             $this->nsession->set_userdata('logado',$data->id);
         echo $this->nsession->userdata('logado');
         endforeach;
+             * 
+             */
         }else{
            echo json_encode(1);
            
@@ -28,7 +37,8 @@ class Login extends CI_Controller{
         
     }
     public function logout(){
-        $this->nsession->unset_userdata('logado');
+        $this->nsession->unset_userdata('userinfo');
+       // $this->nsession->unset_userdata('user_data');
     }
     
     public function caduser(){

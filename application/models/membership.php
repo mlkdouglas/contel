@@ -21,7 +21,7 @@ class Membership extends CI_Model{
          $this->db->where('email',$email);
          $this->db->where('password',$password);
          $user = $this->db->get('user')->result();
-        return $user;
+        return $user[0];
     }
     public function insert_user($data){
              
